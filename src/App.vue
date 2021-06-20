@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <CrearTabla/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CrearTabla from './components/CrearTabla.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CrearTabla
   }
 }
 </script>
@@ -22,5 +21,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.selector-for-some-widget {
+  box-sizing: content-box;
 }
 </style>
