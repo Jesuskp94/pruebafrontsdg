@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col m12">
-      <div class="table">
+      <table>
         <thead>
           <tr>
             <th scope="col">Titulo</th>
@@ -14,15 +14,15 @@
         </thead>
         <tbody>
           <tr v-for="pelicula in leerDatos()" v-bind:key="pelicula.title">
-            <th scope="row">{{ pelicula.title }}</th>
-            <td>{{ pelicula.year }}</td>
-            <td>{{ pelicula.director }}</td>
-            <td>{{ pelicula.cast }}</td>
-            <td>{{ pelicula.genre }}</td>
-            <td>{{ pelicula.notes }}</td>
+            <td scope="row">{{ pelicula.title }}</td>
+            <td scope="row">{{ pelicula.year }}</td>
+            <td scope="row">{{ pelicula.director }}</td>
+            <td scope="row">{{ pelicula.cast }}</td>
+            <td scope="row">{{ pelicula.genre }}</td>
+            <td scope="row">{{ pelicula.notes }}</td>
           </tr>
         </tbody>
-      </div>
+      </table>
     </div>
   </div>
 </template>
@@ -45,13 +45,16 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.table {
-  margin: 40px 0 0;
+table {
+  margin: 40px 40px 40px;
   border: 1px solid black;
-  border-collapse: 1px solid black;
+  border-collapse: collapse;
 }
-th, td {
-  border-bottom: 1px solid #ddd;
-  border-collapse: 1px solid #ddd;
+th{
+  background-color: #04AA6D;
+  color: white;
+}
+th, td{
+  border: 1px solid black;
 }
 </style> 
