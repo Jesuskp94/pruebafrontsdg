@@ -2,6 +2,10 @@
   <div>
     <DropDown @cambiar-num-filas-tabla="cambiarNumFilasTabla"></DropDown>
 
+    <!-- Preguntar por qué una llamada a un método no debe tener los parentesis (aunque reciba parámetros desde el componente hijo),
+    y otra los exiga para hacer referencia al método (supongo que será por el bind pero no lo tengo claro) -->
+    <MovimientoEntrePaginas @pag-anterior="retrocederPagina" @pag-siguiente="pasarPagina" @pasar-pagina="cambiarPagina" :numPaginas="num_paginas()" :paginaActual="paginaActual"></MovimientoEntrePaginas>
+
     <table>
       <thead>
         <tr>
@@ -24,6 +28,7 @@
 <script>
   import peliculas from "@/assets/movies.json"
   import DropDown from "@/components/DropDowns/DropDown.vue"
+  import MovimientoEntrePaginas from "@/components/MovimientoEntrePaginas.vue"
   // import BotonVolverArriba from "@/components/BotonVolverArriba.vue"
 
 
@@ -39,7 +44,8 @@
       }
     },
     components:{
-      DropDown
+      DropDown,
+      MovimientoEntrePaginas,
     },
     methods: {
       filtrarTabla(columna) {
@@ -50,6 +56,7 @@
           this.filtroColumna = columna;
         }
 
+        this.paginaActual = 1
         var ascendente = this.ascendente;
 
         this.registros.sort(function(colA, colB) {
@@ -73,6 +80,19 @@
         var fin = inicio + this.numRegistrosPorPagina;
         return this.registros.slice(inicio, fin);
       },
+      pasarPagina() {
+        if(this.paginaActual < this.num_paginas()) {
+          this.paginaActual +=1
+        }
+      },
+      retrocederPagina() {
+        if(this.paginaActual > 1){
+          this.paginaActual -=1
+        }
+      },
+      cambiarPagina(pagina) {
+        this.paginaActual = pagina;
+      }
     },
     computed: {
       columnas() {
