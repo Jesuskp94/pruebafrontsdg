@@ -1,17 +1,20 @@
 <template>
-  <CrearTabla/>
+  <TablaPeliculas/>
 </template>
 
 <script>
-import CrearTabla from './components/CrearTabla.vue'
+import TablaPeliculas from '@/components/TablaPeliculas.vue'
+import '@/assets/styles.css'
 
 export default {
   name: 'App',
   components: {
-    CrearTabla
+    TablaPeliculas
   }
 }
 </script>
+
+
 
 <style>
 #app {
